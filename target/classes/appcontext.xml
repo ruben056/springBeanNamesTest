@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- PART1: BEAN NAMING -->
+	<!-- Use id for the beanname as good practice!!! -->	
+	<bean class="be.rd.beans.Bean1">
+		<property name="msg" value="be.rd.beans.Bean1"/>
+	</bean>
+	
+	<bean class="be.rd.beans.Bean1" id="beanID">
+		<property name="msg" value="beanID"/>
+	</bean>
+
+	<bean class="be.rd.beans.Bean1" name="beanName">
+		<property name="msg" value="beanName"/>
+	</bean>
+	
+	<!-- Bean aliasing is only really interesting for refactoring allready existing applications
+	I can't see why to use it when creating a new application... stick with the id for that part ... -->
+	<bean class="be.rd.beans.Bean1" name="beanWitAlias,alias1">
+		<property name="msg" value="beanName"/>
+	</bean>		
+	<alias name="beanWitAlias" alias="alias2"/>
+	
+	<!-- PART2: BEAN INSTANTIATION MODE -->
+	<!-- SINGLETON DESIGN PATTER: Single instance per classloader
+	SPRING SINGLETON BEAN : Single instance per spring container -->
+	
+</beans>
